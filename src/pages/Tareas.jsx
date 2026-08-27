@@ -225,7 +225,7 @@ export default function Tareas() {
                         <div className="flex items-center gap-2">
                           <div className="flex items-center gap-1">
                             <button
-                              onClick={() => moveProjectUp(proyecto)}
+                              onClick={() => moveProjectUp(proyecto, proyectosOrdenados)}
                               disabled={proyectoIndex === 0}
                               title="Subir proyecto"
                               className="p-0.5 text-gray-400 hover:text-gray-600 disabled:opacity-20 disabled:cursor-not-allowed transition text-xs"
@@ -233,7 +233,7 @@ export default function Tareas() {
                               ▲
                             </button>
                             <button
-                              onClick={() => moveProjectDown(proyecto)}
+                              onClick={() => moveProjectDown(proyecto, proyectosOrdenados)}
                               disabled={proyectoIndex === proyectosOrdenados.length - 1}
                               title="Bajar proyecto"
                               className="p-0.5 text-gray-400 hover:text-gray-600 disabled:opacity-20 disabled:cursor-not-allowed transition text-xs"
