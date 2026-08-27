@@ -1,0 +1,10 @@
+name: Monitor push y deploy
+on:
+  push:
+    branches: [main]
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Push recibido en task-manager-kim"
