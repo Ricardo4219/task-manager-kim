@@ -32,7 +32,14 @@ export function ProjectsOrderProvider({ children }) {
       if (list.length === 0 && currentProjects.length > 0) {
         list = [...currentProjects].sort();
       }
-      const index = list.indexOf(projectName);
+      let index = list.indexOf(projectName);
+      // Si el proyecto no está en el orden guardado, agregarlo al final.
+      // Cubre dos casos: (a) proyecto nuevo que nunca se ha movido,
+      // (b) nombre con encoding/espacios distinto al guardado en localStorage.
+      if (index === -1) {
+        list = [...list, projectName];
+        index = list.length - 1;
+      }
       if (index <= 0) return list;
       const newOrder = [...list];
       [newOrder[index - 1], newOrder[index]] = [newOrder[index], newOrder[index - 1]];
@@ -46,8 +53,15 @@ export function ProjectsOrderProvider({ children }) {
       if (list.length === 0 && currentProjects.length > 0) {
         list = [...currentProjects].sort();
       }
-      const index = list.indexOf(projectName);
-      if (index < 0 || index >= list.length - 1) return list;
+      let index = list.indexOf(projectName);
+      // Si el proyecto no está en el orden guardado, agregarlo al final.
+      // Cubre dos casos: (a) proyecto nuevo que nunca se ha movido,
+      // (b) nombre con encoding/espacios distinto al guardado en localStorage.
+      if (index === -1) {
+        list = [...list, projectName];
+        index = list.length - 1;
+      }
+      if (index >= list.length - 1) return list;
       const newOrder = [...list];
       [newOrder[index], newOrder[index + 1]] = [newOrder[index + 1], newOrder[index]];
       return newOrder;
