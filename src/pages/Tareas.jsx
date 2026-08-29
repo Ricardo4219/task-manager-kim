@@ -363,6 +363,7 @@ export default function Tareas() {
           onClose={() => setModalOpen(false)}
         />
       )}
+      </div>
     </div>
   );
 }

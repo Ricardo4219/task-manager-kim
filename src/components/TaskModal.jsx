@@ -567,6 +567,7 @@ export default function TaskModal({ tarea, onClose }) {
           </div>
         </form>
       </div>
+      </div>
     </div>
   );
 }
